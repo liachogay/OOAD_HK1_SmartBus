@@ -90,6 +90,12 @@
         >
                 <materialDesign:PackIcon Kind="MapMarker" Width="30" Height="30" Foreground="#FF3C3C3C"/>
             </Canvas>
+            <Canvas
+        m:MapLayer.Position="10.8232,106.6297"
+        m:MapLayer.PositionOrigin="BottomCenter" Width="30" Height="30"
+        >
+                <materialDesign:PackIcon Kind="MapMarker" Width="30" Height="30" Foreground="#FF3C3C3C"/>
+            </Canvas>
         </m:Map>
     </Grid>
 </Window>
