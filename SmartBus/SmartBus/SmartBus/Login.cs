@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SmartBus.Model;
+using SmartBus.User;
 
 namespace SmartBus
 {
@@ -22,7 +22,13 @@ namespace SmartBus
         {
             if (CheckInfo())
             {
-
+                string Username = txtTaiKhoan.Text.Trim();
+                string Password = txtPassWord.Text.Trim();
+                DataClasses1DataContext db = new DataClasses1DataContext();
+                var a = db.CUSTOMERs.Where(s => s.USERID == Username).SingleOrDefault();
+                this.Visible = false;
+                UserForm UF = new UserForm(a);
+                UF.ShowDialog();
             }
             else
             {

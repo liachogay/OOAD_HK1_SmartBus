@@ -103,7 +103,6 @@
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(125, 20);
             this.txtTen.TabIndex = 15;
-            this.txtTen.UseSystemPasswordChar = true;
             // 
             // lbTen
             // 
@@ -120,7 +119,6 @@
             this.txtTuoi.Name = "txtTuoi";
             this.txtTuoi.Size = new System.Drawing.Size(125, 20);
             this.txtTuoi.TabIndex = 17;
-            this.txtTuoi.UseSystemPasswordChar = true;
             // 
             // lbTuoi
             // 
@@ -154,7 +152,6 @@
             this.txtIDBank.Name = "txtIDBank";
             this.txtIDBank.Size = new System.Drawing.Size(125, 20);
             this.txtIDBank.TabIndex = 21;
-            this.txtIDBank.UseSystemPasswordChar = true;
             // 
             // label2
             // 
