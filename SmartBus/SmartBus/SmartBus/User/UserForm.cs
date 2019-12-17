@@ -38,6 +38,11 @@ namespace SmartBus.User
 
         private void BtnXemTram_Click(object sender, EventArgs e)
         {
+            if (txtXe.Text == string.Empty)
+            {
+                MessageBox.Show("Bạn chưa lên xe bus nên không thể xem trạm của xe", "Thông báo");
+                return;
+            }
             int SoXe = int.Parse(txtXe.Text);
             StationBus stationBus = new StationBus(SoXe);
             stationBus.ShowDialog();
