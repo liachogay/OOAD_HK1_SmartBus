@@ -8,6 +8,7 @@ namespace SmartBus.Tracker
     public partial class TrackerForm : Form
     {
         DataClasses1DataContext db = new DataClasses1DataContext();
+        bool Add = false;
         public TrackerForm()
         {
             InitializeComponent();
@@ -46,6 +47,7 @@ namespace SmartBus.Tracker
 
         private void InitData()
         {
+            dgvTracker.Rows.Clear();
             var Temp = from a in db.TRACKERs select a;
             foreach(var item in Temp)
             {
@@ -66,6 +68,7 @@ namespace SmartBus.Tracker
             txtIDBus.ReadOnly = false;
             txtStationGoOn.ReadOnly = false;
             txtStationGoOut.ReadOnly = true;
+            Add = true;
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)
@@ -105,10 +108,46 @@ namespace SmartBus.Tracker
             btnDelete.Enabled = true;
             btnSave.Enabled = false;
 
+            var Temp = db.TRACKERs.Where(s => s.USERNAMEID == txtAccount.Text.Trim() &&
+                                               s.NUMBERBUSID == int.Parse(txtIDBus.Text.Trim())).SingleOrDefault();
+            if (Temp == null && Add)
+            {
+                TRACKER tracker = new TRACKER();
+                tracker.NUMBERBUSID = int.Parse(txtIDBus.Text.Trim());
+                tracker.USERNAMEID = txtAccount.Text.Trim();
+                tracker.POSTIONBUSUP = int.Parse(txtStationGoOn.Text.Trim());
+                tracker.POSTIONBUSDOWN = (txtStationGoOut.Text.Trim() == string.Empty) ? -1 : int.Parse(txtStationGoOut.Text.Trim());
+                db.TRACKERs.Append(tracker);
+                db.SubmitChanges();
+                InitData();
+                MessageBox.Show("Lên xe thành công", "Thông báo");
+
+            }
+            else if (Temp != null && Add)
+            {
+                MessageBox.Show("Quý khách chưa thanh toán chuyến xe trước", "Thông báo");
+            }
+            else if (!Add)
+            {
+                Temp.POSTIONBUSDOWN = int.Parse(txtStationGoOut.Text.Trim());
+                db.SubmitChanges();
+                InitData();
+                MessageBox.Show("Xuống xe thành công", "Thông báo");
+            }
+
             txtAccount.ReadOnly = true;
             txtIDBus.ReadOnly = true;
             txtStationGoOn.ReadOnly = true;
             txtStationGoOut.ReadOnly = true;
+            Add = false;
+        }
+
+        private void DgvTracker_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtAccount.Text = dgvTracker.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txtIDBus.Text = dgvTracker.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txtStationGoOn.Text = dgvTracker.Rows[e.RowIndex].Cells[2].Value.ToString();
+            txtStationGoOut.Text = dgvTracker.Rows[e.RowIndex].Cells[3].Value.ToString();
         }
     }
 }

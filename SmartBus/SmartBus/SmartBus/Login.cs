@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SmartBus.User;
 using SmartBus.Tracker;
+using SmartBus.Admin;
 
 namespace SmartBus
 {
@@ -34,7 +35,8 @@ namespace SmartBus
                 }
                 else if (Username.ToLower() == "admin")
                 {
-
+                    BusForm bs = new BusForm();
+                    bs.ShowDialog();
                 }
                 else
                 {

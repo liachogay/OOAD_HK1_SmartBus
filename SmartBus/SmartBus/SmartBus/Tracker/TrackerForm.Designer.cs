@@ -117,6 +117,7 @@
             this.dgvTracker.Name = "dgvTracker";
             this.dgvTracker.Size = new System.Drawing.Size(486, 148);
             this.dgvTracker.TabIndex = 8;
+            this.dgvTracker.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvTracker_CellClick);
             // 
             // btnAdd
             // 
@@ -136,7 +137,7 @@
             this.btnEdit.TabIndex = 10;
             this.btnEdit.Text = "Xóa";
             this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
+            this.btnEdit.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // btnDelete
             // 
@@ -146,7 +147,7 @@
             this.btnDelete.TabIndex = 11;
             this.btnDelete.Text = "Sửa";
             this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
+            this.btnDelete.Click += new System.EventHandler(this.BtnEdit_Click);
             // 
             // label5
             // 
