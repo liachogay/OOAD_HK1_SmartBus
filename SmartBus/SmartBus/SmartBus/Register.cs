@@ -19,7 +19,9 @@ namespace SmartBus
 
         private int CheckInfo()
         {
-            //
+            //2 == không được để rỗng
+            //1 == tài khoản đã tồn tại
+            //0 == thành công
             int Result = 0; 
             string Username = txtTaiKhoan.Text;
             string Password = txtPassWord.Text;
@@ -30,22 +32,31 @@ namespace SmartBus
             {
                 Result = 2;
             }
-            if (Username.Length>0)
+            else if (Username.Length>0)
             {
-                Result = true;
+                Result = 1;
+            }
+            else
+            {
+                Result = 0;
             }
             return Result;
         }
 
         private void BtnDangKy_Click(object sender, EventArgs e)
         {
-            if (CheckInfo())
+            int value = CheckInfo();
+            if (value == 0)
             {
 
             }
+            else if (value == 1)
+            {
+                MessageBox.Show("Tài khoản đã tồn tại", "Lỗi");
+            }
             else
             {
-                MessageBox.Show("Tài khoản đã tồn tại","Lỗi");
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin", "Lỗi");
             }
         }
     }

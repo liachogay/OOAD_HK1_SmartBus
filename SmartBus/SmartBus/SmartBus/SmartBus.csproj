@@ -67,6 +67,12 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="User\StationBus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\StationBus.Designer.cs">
+      <DependentUpon>StationBus.cs</DependentUpon>
+    </Compile>
     <Compile Include="User\UserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,9 @@
     </Compile>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\StationBus.resx">
+      <DependentUpon>StationBus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>

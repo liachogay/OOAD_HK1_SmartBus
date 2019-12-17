@@ -19,7 +19,18 @@ namespace SmartBus.User
 
         private void UserForm_Load(object sender, EventArgs e)
         {
+            txtAccount.Text = "";
+            txtName.Text = "";
+            txtIDBank.Text = "";
+            cbHocSinh.Checked = false;
+            txtXe.Text = "121";
+        }
 
+        private void BtnXemTram_Click(object sender, EventArgs e)
+        {
+            int SoXe = int.Parse(txtXe.Text);
+            StationBus stationBus = new StationBus(SoXe);
+            stationBus.ShowDialog();
         }
     }
 }

@@ -33,9 +33,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtAccount = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtIDBank = new System.Windows.Forms.TextBox();
             this.lbXeDangNgoi = new System.Windows.Forms.Label();
             this.txtXe = new System.Windows.Forms.TextBox();
             this.cbHocSinh = new System.Windows.Forms.CheckBox();
@@ -64,7 +64,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
-            this.label3.Location = new System.Drawing.Point(24, 9);
+            this.label3.Location = new System.Drawing.Point(33, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(186, 46);
             this.label3.TabIndex = 2;
@@ -88,29 +88,29 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Học sinh:";
             // 
-            // textBox1
+            // txtAccount
             // 
-            this.textBox1.Location = new System.Drawing.Point(110, 76);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 5;
+            this.txtAccount.Location = new System.Drawing.Point(110, 76);
+            this.txtAccount.Name = "txtAccount";
+            this.txtAccount.ReadOnly = true;
+            this.txtAccount.Size = new System.Drawing.Size(100, 20);
+            this.txtAccount.TabIndex = 5;
             // 
-            // textBox2
+            // txtName
             // 
-            this.textBox2.Location = new System.Drawing.Point(110, 107);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 6;
+            this.txtName.Location = new System.Drawing.Point(110, 107);
+            this.txtName.Name = "txtName";
+            this.txtName.ReadOnly = true;
+            this.txtName.Size = new System.Drawing.Size(100, 20);
+            this.txtName.TabIndex = 6;
             // 
-            // textBox3
+            // txtIDBank
             // 
-            this.textBox3.Location = new System.Drawing.Point(110, 138);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 7;
+            this.txtIDBank.Location = new System.Drawing.Point(110, 138);
+            this.txtIDBank.Name = "txtIDBank";
+            this.txtIDBank.ReadOnly = true;
+            this.txtIDBank.Size = new System.Drawing.Size(100, 20);
+            this.txtIDBank.TabIndex = 7;
             // 
             // lbXeDangNgoi
             // 
@@ -146,6 +146,7 @@
             this.btnXemTram.TabIndex = 13;
             this.btnXemTram.Text = "Xem trạm";
             this.btnXemTram.UseVisualStyleBackColor = true;
+            this.btnXemTram.Click += new System.EventHandler(this.BtnXemTram_Click);
             // 
             // UserForm
             // 
@@ -156,9 +157,9 @@
             this.Controls.Add(this.cbHocSinh);
             this.Controls.Add(this.txtXe);
             this.Controls.Add(this.lbXeDangNgoi);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtIDBank);
+            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.txtAccount);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
@@ -181,9 +182,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtAccount;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtIDBank;
         private System.Windows.Forms.Label lbXeDangNgoi;
         private System.Windows.Forms.TextBox txtXe;
         private System.Windows.Forms.CheckBox cbHocSinh;
