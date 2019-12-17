@@ -10,8 +10,6 @@ namespace SmartBus.Model
     {
         private string BankAccountId { get; set; }
 
-        private string BankMoney { get; set; }
-
-        public string BankName { get; set; }
+        private int BankMoney { get; set; }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SmartBus.Model;
 
 namespace SmartBus
 {
@@ -36,6 +37,11 @@ namespace SmartBus
             string Password = txtPassWord.Text.Trim();
 
             return Result;
+        }
+
+        private void InitData()
+        {
+            DBMemberDataContext db = new DBMemberDataContext();
         }
 
         private void BtnDangKy_Click(object sender, EventArgs e)
