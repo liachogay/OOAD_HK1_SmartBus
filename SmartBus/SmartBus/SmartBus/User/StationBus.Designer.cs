@@ -37,7 +37,7 @@
             // 
             this.lbHeader.AutoSize = true;
             this.lbHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.lbHeader.Location = new System.Drawing.Point(117, 25);
+            this.lbHeader.Location = new System.Drawing.Point(134, 22);
             this.lbHeader.Name = "lbHeader";
             this.lbHeader.Size = new System.Drawing.Size(281, 31);
             this.lbHeader.TabIndex = 0;
@@ -45,9 +45,11 @@
             // 
             // dgvTram
             // 
+            this.dgvTram.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTram.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTram.Location = new System.Drawing.Point(2, 83);
             this.dgvTram.Name = "dgvTram";
+            this.dgvTram.ReadOnly = true;
             this.dgvTram.Size = new System.Drawing.Size(533, 250);
             this.dgvTram.TabIndex = 1;
             // 
@@ -58,8 +60,10 @@
             this.ClientSize = new System.Drawing.Size(538, 335);
             this.Controls.Add(this.dgvTram);
             this.Controls.Add(this.lbHeader);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "StationBus";
-            this.Text = "StationBus";
+            this.Text = "Thông tin trạm xe";
             ((System.ComponentModel.ISupportInitialize)(this.dgvTram)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
