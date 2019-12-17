@@ -16,5 +16,10 @@ namespace SmartBus.User
         {
             InitializeComponent();
         }
+
+        private void UserForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
