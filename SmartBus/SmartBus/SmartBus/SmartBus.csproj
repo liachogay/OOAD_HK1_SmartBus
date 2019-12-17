@@ -78,11 +78,11 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tracker\Tracker.cs">
+    <Compile Include="Tracker\TrackerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Tracker\Tracker.Designer.cs">
-      <DependentUpon>Tracker.cs</DependentUpon>
+    <Compile Include="Tracker\TrackerForm.Designer.cs">
+      <DependentUpon>TrackerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="User\StationBus.cs">
       <SubType>Form</SubType>
@@ -114,8 +114,8 @@
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tracker\Tracker.resx">
-      <DependentUpon>Tracker.cs</DependentUpon>
+    <EmbeddedResource Include="Tracker\TrackerForm.resx">
+      <DependentUpon>TrackerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\StationBus.resx">
       <DependentUpon>StationBus.cs</DependentUpon>

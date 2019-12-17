@@ -1,6 +1,6 @@
 ﻿namespace SmartBus.Tracker
 {
-    partial class Tracker
+    partial class TrackerForm
     {
         /// <summary>
         /// Required designer variable.
@@ -41,6 +41,7 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTracker)).BeginInit();
             this.SuspendLayout();
             // 
@@ -110,6 +111,7 @@
             // 
             // dgvTracker
             // 
+            this.dgvTracker.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTracker.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTracker.Location = new System.Drawing.Point(1, 148);
             this.dgvTracker.Name = "dgvTracker";
@@ -118,30 +120,33 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(104, 302);
+            this.btnAdd.Location = new System.Drawing.Point(49, 302);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 9;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(198, 302);
+            this.btnEdit.Location = new System.Drawing.Point(143, 302);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 23);
             this.btnEdit.TabIndex = 10;
             this.btnEdit.Text = "Xóa";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(295, 302);
+            this.btnDelete.Location = new System.Drawing.Point(240, 302);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 11;
             this.btnDelete.Text = "Sửa";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // label5
             // 
@@ -153,11 +158,22 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "MÁY KIỂM TRA";
             // 
-            // Tracker
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(337, 302);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 13;
+            this.btnSave.Text = "Lưu";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
+            // 
+            // TrackerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(488, 337);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
@@ -173,8 +189,9 @@
             this.Controls.Add(this.lbAccount);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Tracker";
+            this.Name = "TrackerForm";
             this.Text = "Máy kiểm tra";
+            this.Load += new System.EventHandler(this.TrackerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTracker)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -196,5 +213,6 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnSave;
     }
 }

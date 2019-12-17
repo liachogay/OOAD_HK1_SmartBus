@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SmartBus.User;
+using SmartBus.Tracker;
 
 namespace SmartBus
 {
@@ -24,11 +25,24 @@ namespace SmartBus
             {
                 string Username = txtTaiKhoan.Text.Trim();
                 string Password = txtPassWord.Text.Trim();
-                DataClasses1DataContext db = new DataClasses1DataContext();
-                var a = db.CUSTOMERs.Where(s => s.USERID == Username).SingleOrDefault();
                 this.Visible = false;
-                UserForm UF = new UserForm(a);
-                UF.ShowDialog();
+                if (Username.ToLower() == "tracker")
+                {
+                    TrackerForm tracker = new TrackerForm();
+                    tracker.ShowDialog();
+
+                }
+                else if (Username.ToLower() == "admin")
+                {
+
+                }
+                else
+                {
+                    DataClasses1DataContext db = new DataClasses1DataContext();
+                    var a = db.CUSTOMERs.Where(s => s.USERID == Username).SingleOrDefault();
+                    UserForm UF = new UserForm(a);
+                    UF.ShowDialog();
+                }
             }
             else
             {

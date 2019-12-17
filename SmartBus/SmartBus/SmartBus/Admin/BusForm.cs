@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SmartBus.Tracker
+namespace SmartBus.Admin
 {
-    public partial class Tracker : Form
+    public partial class BusForm : Form
     {
-        public Tracker()
+        public BusForm()
         {
             InitializeComponent();
         }
