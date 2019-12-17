@@ -13,11 +13,5 @@ namespace SmartBus.Model
         public int Age { get; set; }
 
 
-        public bool getPayment(Customer cus, int Money)
-        {
-            var _money = cus.pay(Money);
-            if (_money == null) return false;
-            return true;
-        }
     }
 }

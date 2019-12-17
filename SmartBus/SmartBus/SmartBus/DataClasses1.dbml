@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SMARTBUS" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-1LS8MPD\SQLEXPRESS;Initial Catalog=SMARTBUS;Integrated Security=True" SettingsObjectName="SmartBus.Properties.Settings" SettingsPropertyName="SMARTBUSConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.BANK" Member="BANKs">
+    <Type Name="BANK">
+      <Column Name="BANKID" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BANKMONEY" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="BANK_CUSTOMER" Member="CUSTOMERs" ThisKey="BANKID" OtherKey="BANKID" Type="CUSTOMER" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TRACKER" Member="TRACKERs">
+    <Type Name="TRACKER">
+      <Column Name="USERNAMEID" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="NUMBERBUSID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="POSTIONBUSUP" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="POSTIONBUSDOWN" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="BUS_TRACKER" Member="BUS" ThisKey="NUMBERBUSID" OtherKey="BUSID" Type="BUS" IsForeignKey="true" />
+      <Association Name="CUSTOMER_TRACKER" Member="CUSTOMER" ThisKey="USERNAMEID" OtherKey="USERID" Type="CUSTOMER" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BUS" Member="BUS">
+    <Type Name="BUS">
+      <Column Name="BUSID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NUMBERCHAIRBUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="BUS_TRACKER" Member="TRACKERs" ThisKey="BUSID" OtherKey="NUMBERBUSID" Type="TRACKER" />
+      <Association Name="BUS_STATIONBUS" Member="STATIONBUS" ThisKey="BUSID" OtherKey="BUSID" Type="STATIONBUS" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CUSTOMER" Member="CUSTOMERs">
+    <Type Name="CUSTOMER">
+      <Column Name="USERID" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PASSWORDID" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="NAMECUS" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AGECUS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BANKID" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ISSTUDENT" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="CUSTOMER_TRACKER" Member="TRACKERs" ThisKey="USERID" OtherKey="USERNAMEID" Type="TRACKER" />
+      <Association Name="BANK_CUSTOMER" Member="BANK" ThisKey="BANKID" OtherKey="BANKID" Type="BANK" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.STATIONBUS" Member="STATIONBUS">
+    <Type Name="STATIONBUS">
+      <Column Name="NUMBERSTATION" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BUSID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ADDRESSSTATION" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="BUS_STATIONBUS" Member="BUS" ThisKey="BUSID" OtherKey="BUSID" Type="BUS" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

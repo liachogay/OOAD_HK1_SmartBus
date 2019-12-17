@@ -35,13 +35,14 @@ namespace SmartBus
             bool Result = false;
             string Username = txtTaiKhoan.Text.Trim();
             string Password = txtPassWord.Text.Trim();
+            DataClasses1DataContext db = new DataClasses1DataContext();
+            var a = db.CUSTOMERs.Where(s => s.USERID == Username).SingleOrDefault();
+            if (a != null)
+            {
+                Result = true;
+            }
 
             return Result;
-        }
-
-        private void InitData()
-        {
-            DBMemberDataContext db = new DBMemberDataContext();
         }
 
         private void BtnDangKy_Click(object sender, EventArgs e)

@@ -27,8 +27,8 @@ namespace SmartBus
             string Password = txtPassWord.Text;
             string Name = txtPassWord.Text;
             int Age = int.Parse(txtTuoi.Text);
-            if (Username.Length == 0 || Password.Length == 0||
-                Name.Length == 0 || txtTuoi.Text.Length == 0 || txtIDBank.Length == 0)
+            if (Username.Length == 0 || Password.Length == 0|| Name.Length == 0
+                || txtTuoi.Text.Length == 0 || txtIDBank.Text.Length == 0)
             {
                 Result = 2;
             }

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DataClasses1">
+  <DataContextMoniker Name="/DataClasses1DataContext" />
+  <nestedChildShapes>
+    <classShape Id="dea021a1-9c53-4ebb-a567-c1610514c22f" absoluteBounds="0.75, 1.25, 2, 1.1939925130208338">
+      <DataClassMoniker Name="/DataClasses1DataContext/BANK" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e50e1989-e920-42a9-a98a-bb8d3cd00d10" absoluteBounds="0.765, 1.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8f5d6d83-3df0-42d1-b7fa-b41a919c6711" absoluteBounds="6.25, 1.125, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DataClasses1DataContext/TRACKER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="135a289b-e076-4682-b7a2-08e02dfcdc5c" absoluteBounds="6.265, 1.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="57a70394-d893-4886-96ad-f94b03cd76a1" absoluteBounds="3.5, 4.25, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/DataClasses1DataContext/BUS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a07590e3-b074-4510-8029-8a7c686c52ae" absoluteBounds="3.515, 4.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="56709b5f-3e1c-4011-9f0d-4aa827bc9acb" absoluteBounds="3.5, 0.875, 2, 1.9631982421874998">
+      <DataClassMoniker Name="/DataClasses1DataContext/CUSTOMER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7ba900a5-3fb9-47f5-b0da-8c630bfa58f2" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="951a623d-b508-4bef-9656-c5fe7ffd6b2c" absoluteBounds="6.25, 4.25, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/DataClasses1DataContext/STATIONBUS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b2b711c7-fe96-49c4-bb8b-4f970ce1d968" absoluteBounds="6.265, 4.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 4.25); (5.875 : 3.875); (5.875 : 1.91429768880208); (6.25 : 1.91429768880208)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClasses1DataContext/BUS/BUS_TRACKER" />
+      <nodes>
+        <classShapeMoniker Id="57a70394-d893-4886-96ad-f94b03cd76a1" />
+        <classShapeMoniker Id="8f5d6d83-3df0-42d1-b7fa-b41a919c6711" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 1.45714884440104); (6.25 : 1.45714884440104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClasses1DataContext/CUSTOMER/CUSTOMER_TRACKER" />
+      <nodes>
+        <classShapeMoniker Id="56709b5f-3e1c-4011-9f0d-4aa827bc9acb" />
+        <classShapeMoniker Id="8f5d6d83-3df0-42d1-b7fa-b41a919c6711" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.84699625651042); (3.5 : 1.84699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClasses1DataContext/BANK/BANK_CUSTOMER" />
+      <nodes>
+        <classShapeMoniker Id="dea021a1-9c53-4ebb-a567-c1610514c22f" />
+        <classShapeMoniker Id="56709b5f-3e1c-4011-9f0d-4aa827bc9acb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 4.87824875651042); (6.25 : 4.87824875651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClasses1DataContext/BUS/BUS_STATIONBUS" />
+      <nodes>
+        <classShapeMoniker Id="57a70394-d893-4886-96ad-f94b03cd76a1" />
+        <classShapeMoniker Id="951a623d-b508-4bef-9656-c5fe7ffd6b2c" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
