@@ -58,6 +58,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </Compile>
+    <Compile Include="DBSQLServerUtils.cs" />
+    <Compile Include="DBUtils.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
