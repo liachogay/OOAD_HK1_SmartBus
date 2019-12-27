@@ -23,13 +23,13 @@ namespace SmartBus.User
             dgvTram.Columns.Add(a);
             dgvTram.Columns.Add(b);
             dgvTram.Columns.Add(c);
-            InitData();
+            InitData(soXe);
         }
 
-        private void InitData()
+        private void InitData(int soXe)
         {
             dgvTram.Rows.Clear();
-            var Temp = from stabus in db.STATIONBUS select stabus;
+            var Temp = db.STATIONBUS.Where(s => s.BUSID == soXe);
             foreach (var item in Temp)
             {
                 dgvTram.Rows.Add(item.NUMBERSTATION, item.BUSID, item.ADDRESSSTATION);

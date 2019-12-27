@@ -38,6 +38,7 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.btnAddStation = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,7 +97,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(73, 266);
+            this.btnAdd.Location = new System.Drawing.Point(31, 266);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 7;
@@ -106,7 +107,7 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(278, 266);
+            this.btnEdit.Location = new System.Drawing.Point(236, 266);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 23);
             this.btnEdit.TabIndex = 8;
@@ -116,7 +117,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(382, 266);
+            this.btnSave.Location = new System.Drawing.Point(340, 266);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 9;
@@ -126,7 +127,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(174, 266);
+            this.btnDelete.Location = new System.Drawing.Point(132, 266);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 10;
@@ -134,11 +135,22 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
+            // btnAddStation
+            // 
+            this.btnAddStation.Location = new System.Drawing.Point(440, 266);
+            this.btnAddStation.Name = "btnAddStation";
+            this.btnAddStation.Size = new System.Drawing.Size(75, 23);
+            this.btnAddStation.TabIndex = 11;
+            this.btnAddStation.Text = "Thêm trạm";
+            this.btnAddStation.UseVisualStyleBackColor = true;
+            this.btnAddStation.Click += new System.EventHandler(this.BtnAddStation_Click);
+            // 
             // BusForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(538, 301);
+            this.Controls.Add(this.btnAddStation);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnEdit);
@@ -172,5 +184,6 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnAddStation;
     }
 }

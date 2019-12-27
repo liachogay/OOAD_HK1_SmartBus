@@ -10,42 +10,45 @@ using System.Windows.Forms;
 
 namespace SmartBus.Admin
 {
-    public partial class BusForm : Form
+    public partial class AddStation : Form
     {
         DataClasses1DataContext db = new DataClasses1DataContext();
-        public BusForm()
+        public AddStation()
         {
             InitializeComponent();
         }
 
-        private void BusForm_Load(object sender, EventArgs e)
+        private void AddStation_Load(object sender, EventArgs e)
         {
-            txtIDBus.ReadOnly = true;
-            txtChair.ReadOnly = true;
+            DataGridViewTextBoxColumn dgvIDSta = new DataGridViewTextBoxColumn();
+            dgvIDSta.HeaderText = "Trạm số";
+            DataGridViewTextBoxColumn dgvcIDBus = new DataGridViewTextBoxColumn();
+            dgvcIDBus.HeaderText = "Mã xe";
+            DataGridViewTextBoxColumn dgvcAddres = new DataGridViewTextBoxColumn();
+            dgvcAddres.HeaderText = "Địa chỉ";
 
-            DataGridViewTextBoxColumn dgvTK = new DataGridViewTextBoxColumn();
-            dgvTK.HeaderText = "Mã xe";
-            DataGridViewTextBoxColumn dgvcMX = new DataGridViewTextBoxColumn();
-            dgvcMX.HeaderText = "Số ghế trên xe";
 
-
-            dataGridView2.Columns.Add(dgvTK);
-            dataGridView2.Columns.Add(dgvcMX);
+            dataGridView2.Columns.Add(dgvIDSta);
+            dataGridView2.Columns.Add(dgvcIDBus);
+            dataGridView2.Columns.Add(dgvcAddres);
             InitData();
-
+            txtIDSta.ReadOnly = true;
+            txtIDBus.ReadOnly = true;
+            txtAddress.ReadOnly = true;
         }
 
         private void InitData()
         {
             dataGridView2.Rows.Clear();
-            var Temp = from bus in db.BUS select bus;
+            var Temp = from sta in db.STATIONBUS select sta;
             foreach (var item in Temp)
             {
-                dataGridView2.Rows.Add(item.BUSID, item.NUMBERCHAIRBUS);
+                dataGridView2.Rows.Add(item.NUMBERSTATION, item.BUSID,item.ADDRESSSTATION);
             }
 
             dataGridView2.AllowUserToAddRows = false;
         }
+    
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
@@ -54,22 +57,17 @@ namespace SmartBus.Admin
             btnDelete.Enabled = false;
             btnSave.Enabled = true;
 
+            txtIDSta.ReadOnly = false;
             txtIDBus.ReadOnly = false;
-            txtChair.ReadOnly = false;
+            txtAddress.ReadOnly = false;
+
+            txtIDSta.Clear();
+            txtIDBus.Clear();
+            txtAddress.Clear();
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-            var Temp = from bus in db.BUS
-                       where bus.BUSID == int.Parse(txtIDBus.Text.Trim())
-                       select bus;
-            foreach (var item in Temp)
-            {
-                db.BUS.DeleteOnSubmit(item);
-            }
-            db.SubmitChanges();
-            InitData();
-            MessageBox.Show("Xóa thành công", "Thông báo");
 
         }
 
@@ -80,8 +78,9 @@ namespace SmartBus.Admin
             btnDelete.Enabled = false;
             btnSave.Enabled = true;
 
+            txtIDSta.ReadOnly = true;
             txtIDBus.ReadOnly = true;
-            txtChair.ReadOnly = false;
+            txtAddress.ReadOnly = false;
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -91,40 +90,43 @@ namespace SmartBus.Admin
             btnDelete.Enabled = true;
             btnSave.Enabled = false;
 
+
             if (txtIDBus.Text == string.Empty) return;
             int idBus = int.Parse(txtIDBus.Text.Trim());
-            var Temp = db.BUS.Where(s => s.BUSID == idBus).SingleOrDefault();
+            int idStation = int.Parse(txtIDSta.Text.Trim());
+            var Temp = db.STATIONBUS.Where(s => s.BUSID == idBus && s.NUMBERSTATION == idStation).SingleOrDefault();
             if (Temp != null)
             {
-                Temp.NUMBERCHAIRBUS = (txtChair.Text.Trim() == string.Empty) ? 0 : int.Parse(txtChair.Text.Trim());
+                Temp.ADDRESSSTATION = txtAddress.Text.Trim();
                 db.SubmitChanges();
                 InitData();
                 MessageBox.Show("Sửa thành công", "Thông báo");
             }
             else
             {
-                BUS a = new BUS();
+                STATIONBUS a = new STATIONBUS();
                 a.BUSID = int.Parse(txtIDBus.Text.Trim());
-                a.NUMBERCHAIRBUS = (txtChair.Text.Trim() == string.Empty) ? 0 : int.Parse(txtChair.Text.Trim());
-                db.BUS.InsertOnSubmit(a);
+                a.NUMBERSTATION = int.Parse(txtIDSta.Text.Trim());
+                a.ADDRESSSTATION = txtAddress.Text.Trim();
+                db.STATIONBUS.InsertOnSubmit(a);
                 db.SubmitChanges();
                 InitData();
                 MessageBox.Show("Thêm thành công", "Thông báo");
             }
+
+            txtIDSta.ReadOnly = true;
             txtIDBus.ReadOnly = true;
-            txtChair.ReadOnly = true;
+            txtAddress.ReadOnly = true;
+
+
+
         }
 
         private void DataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtIDBus.Text = dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString();
-            txtChair.Text = dataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString();
-        }
-
-        private void BtnAddStation_Click(object sender, EventArgs e)
-        {
-            AddStation AS = new AddStation();
-            AS.ShowDialog();
+            txtIDSta.Text = dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txtIDBus.Text = dataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txtAddress.Text = dataGridView2.Rows[e.RowIndex].Cells[2].Value.ToString();
         }
     }
 }

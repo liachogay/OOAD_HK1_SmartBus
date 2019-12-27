@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AddStation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AddStation.Designer.cs">
+      <DependentUpon>AddStation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\BusForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,9 @@
     <Compile Include="User\UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Admin\AddStation.resx">
+      <DependentUpon>AddStation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\BusForm.resx">
       <DependentUpon>BusForm.cs</DependentUpon>
     </EmbeddedResource>
